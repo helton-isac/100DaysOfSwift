@@ -1,10 +1,21 @@
 import UIKit
 
-print()
-print("--------------------------------------------------------")
-print("Using closures as parameters when they accept parameters")
-print("--------------------------------------------------------")
-print()
+func printHeader(_ header: String){
+    var line = ""
+    for _ in 1...header.count {
+        line = line + "-"
+    }
+    print()
+    print(line)
+    print(header)
+    print(line)
+    print()
+}
+
+
+
+
+printHeader("Using closures as parameters when they accept parameters")
 
 func travel(action: (String) -> Void) {
     print("I'm getting ready to go.")
@@ -31,11 +42,10 @@ func travelAction (place: String)
 
 travel (action: travelAction(place:))
 
-print()
-print("----------------------------------------------------------")
-print("When would closures with parameters be used as parameters?")
-print("----------------------------------------------------------")
-print()
+
+
+
+printHeader("When would closures with parameters be used as parameters?")
 
 let changeSpeed = { (speed: Int) in
     print("Changing speed to \(speed)kph")
@@ -63,11 +73,8 @@ getDirections(to: "London") { (directions: [String]) in
     }
 }
 
-print()
-print("----------------------------------------------------")
-print("Using closures as parameters when they return values")
-print("----------------------------------------------------")
-print()
+
+printHeader("Using closures as parameters when they return values")
 
 func travel(action: (String) -> String) {
     print("I'm getting ready to go.")
@@ -79,11 +86,10 @@ travel { (place: String) -> String in
     return "I'm going to \(place) in my car"
 }
 
-print()
-print("---------------------------------------------------------------------------")
-print("When would you use closures with return values as parameters to a function?")
-print("---------------------------------------------------------------------------")
-print()
+
+
+
+printHeader("When would you use closures with return values as parameters to a function?")
 
 func reduce(_ values: [Int], using closure: (Int, Int) -> Int) -> Int {
     // start with a total equal to the first value
@@ -126,11 +132,9 @@ manipulate(numbers: [1, 2, 3]) { number in
 }
 
 
-print()
-print("-------------------------")
-print("Shorthand parameter names")
-print("-------------------------")
-print()
+
+
+printHeader("Shorthand parameter names")
 
 func travel2(action: (String) -> String) {
     print("I'm getting ready to go.")
@@ -159,9 +163,84 @@ travel2 {
     "I'm going to \($0) in my car"
 }
 
-print()
-print("---------------------------------")
-print("Closures with multiple parameters")
-print("---------------------------------")
-print()
 
+
+
+printHeader("Closures with multiple parameters")
+
+func travel(action: (String, Int) -> String) {
+    print("I'm getting ready to go.")
+    let description = action("London", 60)
+    print(description)
+    print("I arrived!")
+}
+travel {
+    "I'm going to \($0) at \($1) miles per hour."
+}
+
+
+
+
+
+printHeader("Returning closures from functions")
+
+func travel() -> (String) -> Void {
+    return {
+        print("I'm going to \($0)")
+    }
+}
+
+let result = travel()
+result("London")
+
+let result2: Void = travel()("London")
+
+
+printHeader("Capturing values")
+
+func travel3() -> (String) -> Void {
+    return {
+        print("I'm going to \($0)")
+    }
+}
+let result3 = travel3()
+result("London")
+
+func travel4() -> (String) -> Void {
+    var counter = 1
+
+    return {
+        print("\(counter). I'm going to \($0)")
+        counter += 1
+    }
+}
+
+let result4 = travel4()
+result4("London")
+result4("London")
+result4("London")
+
+
+
+
+printHeader("Why do Swift’s closures capture values?")
+
+func makeRandomNumberGenerator() -> () -> Int {
+    var previousNumber = 0
+    return {
+        var newNumber: Int
+
+        repeat {
+            newNumber = Int.random(in: 1...3)
+        } while newNumber == previousNumber
+
+        previousNumber = newNumber
+        return newNumber
+    }
+}
+
+let generator = makeRandomNumberGenerator()
+
+for _ in 1...10 {
+    print(generator())
+}
