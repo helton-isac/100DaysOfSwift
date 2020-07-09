@@ -13,10 +13,17 @@ class ViewController: UIViewController {
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
     @IBOutlet var countryToGuess: UILabel!
+    @IBOutlet var correctFlagsLabel: UILabel!
+    @IBOutlet var wrongFlagsLabel: UILabel!
+    @IBOutlet var correctFlagsTotal: UILabel!
+    @IBOutlet var wrongFlagsTotal: UILabel!
     
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
+    var correctFlagsTotalValue = 0;
+    var wrongFlagsTotalValue = 0;
+    var totalAttempts = 10;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,17 +60,21 @@ class ViewController: UIViewController {
         var title: String
         
         if sender.tag == correctAnswer {
-            title = "Correct"
+            correctFlagsTotalValue += 1
+            correctFlagsTotal.text = "\(correctFlagsTotalValue)"
             score += 1
+            title = "Correct"
         } else {
+            wrongFlagsTotalValue += 1
+            wrongFlagsTotal.text = "\(wrongFlagsTotalValue)"
             title = "Wrong"
             score -= 1
         }
         
         let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
-        
+
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-        
+
         present(ac, animated: true)
         
     }
