@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
+    @IBOutlet var countryToGuess: UILabel!
     
     var countries = [String]()
     var score = 0
@@ -23,6 +24,8 @@ class ViewController: UIViewController {
         countries += ["estonia","france","germany","ireland",
                       "italy","monaco","nigeria","poland",
                       "russia","spain","uk","us"]
+        
+        title = "Guess the Flag"
         
         button1.layer.borderWidth = 1
         button2.layer.borderWidth = 1
@@ -43,7 +46,7 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         
-        title = countries[correctAnswer].uppercased()
+        countryToGuess.text = countries[correctAnswer].uppercased()
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
