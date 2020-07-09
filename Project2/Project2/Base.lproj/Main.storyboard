@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QbF-Bb-m9b">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIF-0U-J1w">
-                                <rect key="frame" x="180" y="97" width="54.5" height="49"/>
+                                <rect key="frame" x="179.66666666666666" y="97" width="54.666666666666657" height="49"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -58,26 +58,51 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrongs:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nz-nc-XIj">
-                                <rect key="frame" x="30" y="196" width="75.5" height="25"/>
+                                <rect key="frame" x="30.000000000000007" y="196" width="75.666666666666686" height="25"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtM-2j-LSF">
-                                <rect key="frame" x="110.5" y="196" width="13" height="25"/>
+                                <rect key="frame" x="110.66666666666667" y="196" width="13" height="25"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdn-Ot-gXx">
+                                <rect key="frame" x="30" y="792" width="354" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3C5-Ub-yth"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Continue"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="67N-KB-DNX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="jtM-2j-LSF" firstAttribute="centerY" secondItem="2nz-nc-XIj" secondAttribute="centerY" id="6AQ-Qy-l6c"/>
                             <constraint firstItem="3yH-sQ-G2V" firstAttribute="top" secondItem="OJ2-6D-g01" secondAttribute="bottom" constant="30" id="6gW-81-xMo"/>
                             <constraint firstItem="zlL-7W-W5F" firstAttribute="leading" secondItem="dxh-gg-qtK" secondAttribute="trailing" constant="5" id="AMI-Mc-WwE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xdn-Ot-gXx" secondAttribute="trailing" constant="30" id="D6s-yZ-IvQ"/>
                             <constraint firstItem="zlL-7W-W5F" firstAttribute="centerY" secondItem="dxh-gg-qtK" secondAttribute="centerY" id="Fhg-ZD-JJq"/>
+                            <constraint firstItem="Xdn-Ot-gXx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Nyk-hx-l9a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xdn-Ot-gXx" secondAttribute="bottom" constant="30" id="PGl-oZ-0d5"/>
                             <constraint firstItem="OJ2-6D-g01" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Z3v-Cw-EPl"/>
                             <constraint firstItem="2nz-nc-XIj" firstAttribute="top" secondItem="dxh-gg-qtK" secondAttribute="bottom" constant="10" id="gYV-C7-eoW"/>
                             <constraint firstItem="OJ2-6D-g01" firstAttribute="top" secondItem="2nz-nc-XIj" secondAttribute="bottom" constant="30" id="met-HC-Ngl"/>
@@ -98,6 +123,7 @@
                         <outlet property="button1" destination="OJ2-6D-g01" id="XhQ-H0-u6n"/>
                         <outlet property="button2" destination="3yH-sQ-G2V" id="ny4-ac-odA"/>
                         <outlet property="button3" destination="6SR-qG-scl" id="Tty-3R-qow"/>
+                        <outlet property="continueButton" destination="Xdn-Ot-gXx" id="6j4-sc-gaA"/>
                         <outlet property="correctFlagsLabel" destination="dxh-gg-qtK" id="zBT-TI-VX0"/>
                         <outlet property="correctFlagsTotal" destination="zlL-7W-W5F" id="akD-RZ-UcZ"/>
                         <outlet property="countryToGuess" destination="qIF-0U-J1w" id="dYu-EP-jAf"/>
