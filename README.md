@@ -12,3 +12,7 @@ Project 2 demo:
 Project 3 demo:
 
 <img src="./demo/project03.gif" width="250">
+
+Challenge demo:
+
+<img src="./demo/Challenge01.gif" width="250">
