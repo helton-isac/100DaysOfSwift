@@ -59,11 +59,14 @@ class ViewController: UITableViewController {
         present(ac, animated: true)
     }
     
+    fileprivate func showError(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
+    
     func submit(_ answer: String) {
         let lowerAnswer = answer.lowercased()
-        
-        let errorTitle: String
-        let errorMessage: String
         
         guard let title = title else { return }
         
@@ -78,25 +81,21 @@ class ViewController: UITableViewController {
                         
                         return
                     } else {
-                        errorTitle = "Word is not real"
-                        errorMessage = "Word not recognized or its size is less than 3 characters."
+                        showError(title: "Word is not real",
+                                  message: "Word not recognized or its size is less than 3 characters.")
                     }
                 } else {
-                    errorTitle = "Word already used"
-                    errorMessage = "Be more original!"
+                    showError(title: "Word already used",
+                              message: "Be more original!")
                 }
             } else {
-                errorTitle = "Word not possible"
-                errorMessage = "You can't spell that word from \(title.lowercased())"
+                showError(title: "Word not possible",
+                          message: "You can't spell that word from \(title.lowercased())")
             }
         } else {
-            errorTitle = "Same word of the input"
-            errorMessage = "Be more original!"
+            showError(title: "Same word of the input",
+                      message: "Be more original!")
         }
-        
-        let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
     }
     
     func isPossible(word: String) -> Bool {
