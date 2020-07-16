@@ -18,6 +18,14 @@ class ViewController: UITableViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
         
+        let startGameButton = UIBarButtonItem(title: "Start Game",
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(startGame))
+        toolbarItems = [startGameButton]
+        navigationController?.isToolbarHidden = false
+        
+        
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 allWords = startWords.components(separatedBy: "\n")
@@ -31,7 +39,7 @@ class ViewController: UITableViewController {
         startGame()
     }
     
-    func startGame() {
+    @objc func startGame() {
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
