@@ -65,27 +65,33 @@ class ViewController: UITableViewController {
         let errorTitle: String
         let errorMessage: String
         
-        if isPossible(word: lowerAnswer){
-            if isOriginal(word: lowerAnswer) {
-                if isReal(word: lowerAnswer) {
-                    usedWords.insert(answer, at: 0)
-                    
-                    let indexPath = IndexPath(row: 0, section: 0)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
-                    
-                    return
+        guard let title = title else { return }
+        
+        if lowerAnswer != title.lowercased() {
+            if isPossible(word: lowerAnswer){
+                if isOriginal(word: lowerAnswer) {
+                    if isReal(word: lowerAnswer) {
+                        usedWords.insert(answer, at: 0)
+                        
+                        let indexPath = IndexPath(row: 0, section: 0)
+                        tableView.insertRows(at: [indexPath], with: .automatic)
+                        
+                        return
+                    } else {
+                        errorTitle = "Word is not real"
+                        errorMessage = "Word not recognized or its size is less than 3 characters."
+                    }
                 } else {
-                    errorTitle = "Word not recognized"
-                    errorMessage = "You can't just make them up, you know!"
+                    errorTitle = "Word already used"
+                    errorMessage = "Be more original!"
                 }
             } else {
-                errorTitle = "Word already used"
-                errorMessage = "Be more original!"
+                errorTitle = "Word not possible"
+                errorMessage = "You can't spell that word from \(title.lowercased())"
             }
         } else {
-            guard let title = title else { return }
-            errorTitle = "Word not possible"
-            errorMessage = "You can't spell that word from \(title.lowercased())"
+            errorTitle = "Same word of the input"
+            errorMessage = "Be more original!"
         }
         
         let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
@@ -116,7 +122,7 @@ class ViewController: UITableViewController {
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
-        return misspelledRange.location == NSNotFound
+        return misspelledRange.location == NSNotFound && word.count > 2
     }
 }
 
