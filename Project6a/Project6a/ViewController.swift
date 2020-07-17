@@ -65,34 +65,33 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        if sender.tag == correctAnswer {
-            correctFlagsTotalValue += 1
-            correctFlagsTotal.text = "\(correctFlagsTotalValue)"
-        } else {
-            wrongFlagsTotalValue += 1
-            wrongFlagsTotal.text = "\(wrongFlagsTotalValue)"
-            sender.layer.borderWidth = 3
-            sender.layer.borderColor = UIColor.red.cgColor
+        if continueButton.isHidden {
+            if sender.tag == correctAnswer {
+                correctFlagsTotalValue += 1
+                correctFlagsTotal.text = "\(correctFlagsTotalValue)"
+            } else {
+                wrongFlagsTotalValue += 1
+                wrongFlagsTotal.text = "\(wrongFlagsTotalValue)"
+                sender.layer.borderWidth = 3
+                sender.layer.borderColor = UIColor.red.cgColor
+            }
+            
+            switch correctAnswer {
+            case 0:
+                button1.layer.borderWidth = 3
+                button1.layer.borderColor = UIColor.green.cgColor
+            case 1:
+                button2.layer.borderWidth = 3
+                button2.layer.borderColor = UIColor.green.cgColor
+            case 2:
+                button3.layer.borderWidth = 3
+                button3.layer.borderColor = UIColor.green.cgColor
+            default:
+                break
+            }
+            
+            continueButton.isHidden = false;
         }
-        
-        switch correctAnswer {
-        case 0:
-            button1.layer.borderWidth = 3
-            button1.layer.borderColor = UIColor.green.cgColor
-        case 1:
-            button2.layer.borderWidth = 3
-            button2.layer.borderColor = UIColor.green.cgColor
-        case 2:
-            button3.layer.borderWidth = 3
-            button3.layer.borderColor = UIColor.green.cgColor
-        default:
-            break
-        }
-        
-        continueButton.isHidden = false;
-        
-        
-        
     }
     
     fileprivate func initializeGame() {
