@@ -12,3 +12,5 @@ https://www.hackingwithswift.com/100
 | Project 6 A                                 | Project 6 B                                 |
 |---------------------------------------------|---------------------------------------------|
 |<img src="./demo/project06A.gif" width="500">|<img src="./demo/project06B.png" width="250">|
+
+Currently code on the day 30.
