@@ -17,4 +17,4 @@ https://www.hackingwithswift.com/100
 |----------------------------------------------|
 |<img src="./demo/Challenge02.gif" width="250">|
 
-Currently code on the day 32.
+Currently code on the day 33 - Parsing JSON using the Codable protocol
