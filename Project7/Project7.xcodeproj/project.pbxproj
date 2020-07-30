@@ -62,12 +62,12 @@
 		980B77B424CF8404002FDE79 /* Project7 */ = {
 			isa = PBXGroup;
 			children = (
-				980B77CA24CF8459002FDE79 /* DetailViewController.swift */,
 				980B77CB24CF8459002FDE79 /* Petition.swift */,
 				980B77C924CF8459002FDE79 /* Petitions.swift */,
 				980B77B524CF8404002FDE79 /* AppDelegate.swift */,
 				980B77B724CF8404002FDE79 /* SceneDelegate.swift */,
 				980B77B924CF8404002FDE79 /* ViewController.swift */,
+				980B77CA24CF8459002FDE79 /* DetailViewController.swift */,
 				980B77BB24CF8404002FDE79 /* Main.storyboard */,
 				980B77BE24CF8405002FDE79 /* Assets.xcassets */,
 				980B77C024CF8405002FDE79 /* LaunchScreen.storyboard */,
