@@ -93,7 +93,7 @@ class ViewController: UITableViewController {
         ac.addAction(filterAction)
         
         let cleanAction = UIAlertAction(title: "Clean", style: .default) {
-            [weak self, weak ac] _ in
+            [weak self] _ in
             self?.cleanFilter()
         }
         
