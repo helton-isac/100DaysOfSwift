@@ -17,4 +17,8 @@ https://www.hackingwithswift.com/100
 |----------------------------------------------|--------------------------------------------|
 |<img src="./demo/Challenge02.gif" width="250">|<img src="./demo/project07.gif" width="250">|
 
-Currently code on the day 35
+| Project 8                                  |
+|--------------------------------------------|
+|<img src="./demo/project08.gif" width="500">|
+
+Currently code on the day 37
