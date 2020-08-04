@@ -175,14 +175,28 @@ class ViewController: UIViewController {
             currentAnswer.text = ""
             score += 1
 
-            if score % 7 == 0 {
+            if hasFinishedGame() {
                 let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            let ac = UIAlertController(title: "", message: "incorrect guess", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+            score = score > 0 ? score - 1 : 0
         }
     }
 
+    func hasFinishedGame() -> Bool {
+        for btn in letterButtons {
+            if (!btn.isHidden) {
+                return false;
+            }
+        }
+        return true
+    }
+    
     @objc func clearTapped(_ sender: UIButton) {
         currentAnswer.text = ""
 
