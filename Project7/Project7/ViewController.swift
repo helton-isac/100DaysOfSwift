@@ -87,7 +87,10 @@ class ViewController: UITableViewController {
         let filterAction = UIAlertAction(title: "OK", style: .default) {
             [weak self, weak ac] _ in
             guard let item = ac?.textFields?[0].text else { return }
-            self?.filterPetitions(item)
+            DispatchQueue.global(qos: .userInitiated).async {
+                [weak self] in
+                self?.filterPetitions(item)
+            }
         }
         
         ac.addAction(filterAction)
@@ -102,13 +105,16 @@ class ViewController: UITableViewController {
         present(ac, animated: true)
     }
     
-    func filterPetitions(_ textToFilter: String) {
+    @objc func filterPetitions(_ textToFilter: String) {
         filteredPetitions = petitions.filter({ (petition) -> Bool in
             return petition.title.lowercased().contains(textToFilter.lowercased())
                 || petition.body.lowercased().contains(textToFilter.lowercased())
         })
-        title = textToFilter
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            [weak self] in
+            self?.title = textToFilter
+            self?.tableView.reloadData()
+        }
     }
     
     func cleanFilter() {
