@@ -11,12 +11,7 @@ import UIKit
 class ViewController: UITableViewController {
     var pictures = [String]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        title = "Storm Viewer"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
+    @objc func loadPictures() {
         let fm: FileManager = FileManager.default
         let path: String = Bundle.main.resourcePath!
         let items: [String] = try! fm.contentsOfDirectory(atPath: path)
@@ -28,6 +23,15 @@ class ViewController: UITableViewController {
         }
         
         print(pictures)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Storm Viewer"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        performSelector(inBackground: #selector(loadPictures), with: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
