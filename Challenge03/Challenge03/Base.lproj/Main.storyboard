@@ -34,8 +34,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="??????" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDB-Ks-9gG">
-                                <rect key="frame" x="16" y="285" width="382" height="72"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="??????" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDB-Ks-9gG">
+                                <rect key="frame" x="16" y="149.5" width="382" height="440.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="2NA-9M-q88"/>
                                 </constraints>
@@ -205,15 +205,19 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Kjy-HJ-sZa" firstAttribute="top" secondItem="tDB-Ks-9gG" secondAttribute="bottom" constant="16" id="1fW-Qy-YTP"/>
                             <constraint firstItem="Lh9-tD-52K" firstAttribute="top" secondItem="acO-io-PWE" secondAttribute="top" constant="16" id="6U8-af-kRl"/>
                             <constraint firstItem="yIe-q0-KxH" firstAttribute="top" secondItem="Lh9-tD-52K" secondAttribute="bottom" constant="16" id="8ct-l7-wWK"/>
                             <constraint firstItem="acO-io-PWE" firstAttribute="trailing" secondItem="Kjy-HJ-sZa" secondAttribute="trailing" constant="16" id="ANc-3c-J0L"/>
                             <constraint firstItem="Kjy-HJ-sZa" firstAttribute="leading" secondItem="acO-io-PWE" secondAttribute="leading" constant="16" id="G8X-pS-qDy"/>
+                            <constraint firstItem="acO-io-PWE" firstAttribute="trailing" secondItem="tDB-Ks-9gG" secondAttribute="trailing" constant="16" id="NFt-Is-4yf"/>
                             <constraint firstItem="acO-io-PWE" firstAttribute="trailing" secondItem="Lh9-tD-52K" secondAttribute="trailing" constant="16" id="OdU-3g-1yL"/>
                             <constraint firstItem="yIe-q0-KxH" firstAttribute="leading" secondItem="acO-io-PWE" secondAttribute="leading" constant="16" id="Q4c-yr-LLz"/>
                             <constraint firstItem="Lh9-tD-52K" firstAttribute="leading" secondItem="acO-io-PWE" secondAttribute="leading" constant="16" id="VWq-c3-uPZ"/>
                             <constraint firstItem="acO-io-PWE" firstAttribute="trailing" secondItem="yIe-q0-KxH" secondAttribute="trailing" constant="16" id="Wsh-s5-9AL"/>
+                            <constraint firstItem="tDB-Ks-9gG" firstAttribute="leading" secondItem="acO-io-PWE" secondAttribute="leading" constant="16" id="duI-dg-bKC"/>
                             <constraint firstItem="acO-io-PWE" firstAttribute="bottom" secondItem="Kjy-HJ-sZa" secondAttribute="bottom" constant="16" id="q3L-bn-Nad"/>
+                            <constraint firstItem="tDB-Ks-9gG" firstAttribute="top" secondItem="yIe-q0-KxH" secondAttribute="bottom" constant="16" id="uP5-sz-ir3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="acO-io-PWE"/>
                     </view>
