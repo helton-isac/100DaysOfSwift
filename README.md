@@ -17,4 +17,4 @@ https://www.hackingwithswift.com/100
 |----------------------------------------------|
 |<img src="./demo/Challenge03.gif" width="250">|
 
-Currently code on the day 41 - Challenge 03.
+Currently code on the day 42 - Project 10.
