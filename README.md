@@ -13,8 +13,8 @@ https://www.hackingwithswift.com/100
 |----------------------------------------------|--------------------------------------------|--------------------------------------------|
 |<img src="./demo/Challenge02.gif" width="250">|<img src="./demo/project07.gif" width="250">|<img src="./demo/project08.gif" width="500">|
 
-| Challenge 03                                 |
-|----------------------------------------------|
-|<img src="./demo/Challenge03.gif" width="250">|
+| Project 9                                  | Challenge 03                                 | Project 10                                  |
+|--------------------------------------------|----------------------------------------------|--------------------------------------------|
+|<img src="./demo/project09.gif" width="250">|<img src="./demo/Challenge03.gif" width="250">|<img src="./demo/project10.gif" width="250">|
 
-Currently code on the day 42 - Project 10.
+Currently code on the day 43 - Project 10.
