@@ -43,6 +43,34 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     }
     
     @objc func addNewPerson(){
+        
+        if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            let ac = UIAlertController(title: "Add a Person", message: nil, preferredStyle: .actionSheet)
+            
+            ac.addAction(UIAlertAction(title: "From Camera", style: .default){
+                [weak self] _ in
+                self?.addPersonFromCamera()
+            })
+            ac.addAction(UIAlertAction(title: "From Media", style: .default){
+                [weak self] _ in
+                self?.addPersonFromMedia()
+            })
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            present(ac, animated: true)
+        } else {
+            addPersonFromMedia()
+        }
+    }
+    
+    func addPersonFromCamera() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    func addPersonFromMedia() {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
