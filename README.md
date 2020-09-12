@@ -24,6 +24,10 @@ Projects:
 |--------------------------------------------|--------------------------------------------|
 |<img src="./demo/project09.gif" width="250">|<img src="./demo/project10.gif" width="250">|
 
+| Project 11                                 |
+|--------------------------------------------|
+|<img src="./demo/project11.gif" width="500">|
+
 Challenges
 
 | Challenge 01                                 | Challenge 02                                 | Challenge 03                                 |
@@ -31,4 +35,4 @@ Challenges
 |<img src="./demo/Challenge01.gif" width="250">|<img src="./demo/Challenge02.gif" width="250">|<img src="./demo/Challenge03.gif" width="250">|
 
 
-Currently code on the day 44 - Project 10.
+Currently code on the day 45 - Project 11.
