@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     var correctFlagsTotalValue = 0;
     var wrongFlagsTotalValue = 0;
     var totalAttempts = 9;
+    var highestScore = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,37 +66,37 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        if sender.tag == correctAnswer {
-            correctFlagsTotalValue += 1
-            correctFlagsTotal.text = "\(correctFlagsTotalValue)"
-        } else {
-            wrongFlagsTotalValue += 1
-            wrongFlagsTotal.text = "\(wrongFlagsTotalValue)"
-            sender.layer.borderWidth = 3
-            sender.layer.borderColor = UIColor.red.cgColor
+        if (continueButton.isHidden){
+            if sender.tag == correctAnswer {
+                correctFlagsTotalValue += 1
+                correctFlagsTotal.text = "\(correctFlagsTotalValue)"
+            } else {
+                wrongFlagsTotalValue += 1
+                wrongFlagsTotal.text = "\(wrongFlagsTotalValue)"
+                sender.layer.borderWidth = 3
+                sender.layer.borderColor = UIColor.red.cgColor
+            }
+            
+            switch correctAnswer {
+            case 0:
+                button1.layer.borderWidth = 3
+                button1.layer.borderColor = UIColor.green.cgColor
+            case 1:
+                button2.layer.borderWidth = 3
+                button2.layer.borderColor = UIColor.green.cgColor
+            case 2:
+                button3.layer.borderWidth = 3
+                button3.layer.borderColor = UIColor.green.cgColor
+            default:
+                break
+            }
         }
-        
-        switch correctAnswer {
-        case 0:
-            button1.layer.borderWidth = 3
-            button1.layer.borderColor = UIColor.green.cgColor
-        case 1:
-            button2.layer.borderWidth = 3
-            button2.layer.borderColor = UIColor.green.cgColor
-        case 2:
-            button3.layer.borderWidth = 3
-            button3.layer.borderColor = UIColor.green.cgColor
-        default:
-            break
-        }
-        
         continueButton.isHidden = false;
-        
-        
-        
     }
     
     fileprivate func initializeGame() {
+        let defaults = UserDefaults.standard
+        highestScore = defaults.object(forKey: "HighestScore") as? Int ?? 0
         correctFlagsTotalValue = 0;
         wrongFlagsTotalValue = 0;
         totalAttempts = 9;
@@ -110,7 +111,16 @@ class ViewController: UIViewController {
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         if totalAttempts == 0 {
-            let ac = UIAlertController(title: "Game Over!", message: "You guessed \(correctFlagsTotalValue) of 10 flags", preferredStyle: .alert)
+            var acTitle = "Game Over!"
+            if(highestScore < correctFlagsTotalValue) {
+                highestScore = correctFlagsTotalValue
+                let defaults = UserDefaults.standard
+                defaults.set(highestScore, forKey: "HighestScore")
+                acTitle = "Congratulation, you've beat your high score!"
+            }
+            
+            let ac = UIAlertController(title: acTitle, message: "You guessed \(correctFlagsTotalValue) of 10 flags", preferredStyle: .alert)
+
             
             ac.addAction(UIAlertAction(title: "Play Again", style: .default, handler: playAgain))
             

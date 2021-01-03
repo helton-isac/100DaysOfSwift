@@ -34,8 +34,8 @@ Challenges
 |----------------------------------------------|----------------------------------------------|----------------------------------------------|
 |<img src="./demo/Challenge01.gif" width="250">|<img src="./demo/Challenge02.gif" width="250">|<img src="./demo/Challenge03.gif" width="250">|
 
-| Challenge 04                                 | | |
-|----------------------------------------------|-|-|
-|<img src="./demo/Challenge04.gif" width="250">| | |
+| Challenge 04                                 | Challenge 05                                 | |
+|----------------------------------------------|----------------------------------------------|-|
+|<img src="./demo/Challenge04.gif" width="250">|<img src="./demo/Challenge05.gif" width="250">| |
 
-Currently code on the day 49 - Wrap up Challenge 01
+Currently code on the day 49 - Wrap up Challenge 02
